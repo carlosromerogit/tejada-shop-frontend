@@ -11,9 +11,9 @@ import AspectRatio from "./ui/aspect-ratio/AspectRatio.vue";
 </script>
 
 <template>
-  <Card class="">
+  <Card>
     <CardHeader class="p-0">
-      <AspectRatio :ratio="3 / 3">
+      <AspectRatio :ratio="1 / 1">
         <div class="flex justify-center items-center h-full rounded-t p-1">
           <img
             class="h-full"
@@ -35,7 +35,7 @@ import AspectRatio from "./ui/aspect-ratio/AspectRatio.vue";
         <CardTitle class="text-xl mb-2 font-thin">Product name</CardTitle>
       </CardContent>
       <CardFooter class="flex justify-between px-3 pb-2">
-        <p class="text-3xl font-bold">$400</p>
+        <p class="text-2xl font-bold">$400</p>
         <Button>
           <Icon
             name="ic:baseline-add-shopping-cart"

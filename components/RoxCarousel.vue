@@ -19,7 +19,7 @@ import {
       <CarouselItem
         v-for="(_, index) in 5"
         :key="index"
-        class="basis-full xs:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-0"
+        class="basis-full xs:basis-1/2 md:basis-1/3 lg:basis-1/5 pl-0"
       >
         <div class="p-1">
           <ProductCard></ProductCard>

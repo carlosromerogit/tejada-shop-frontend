@@ -13,6 +13,11 @@
         <Button
           variant="ghost"
           class="hover:shadow-lg hover:shadow-stone-300 hover:scale-110 transition-all"
+          >Inicio</Button
+        >
+        <Button
+          variant="ghost"
+          class="hover:shadow-lg hover:shadow-stone-300 hover:scale-110 transition-all"
           >Tienda</Button
         >
         <!-- <div
@@ -39,7 +44,7 @@
         <Button
           variant="ghost"
           class="hover:shadow-lg hover:shadow-stone-300 hover:scale-110 transition-all"
-          >Categorías</Button
+          >Contacto</Button
         >
         <!-- <div
           class="flex cursor-pointer items-center gap-x-1 rounded-md py-2 px-4 hover:shadow-lg hover:shadow-stone-200 hover:scale-110 transition-all"
