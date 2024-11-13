@@ -32,17 +32,18 @@ import AspectRatio from "./ui/aspect-ratio/AspectRatio.vue";
             style="color: gray"
           ></Icon>
         </div>
-        <CardTitle class="text-xl mb-2 font-thin">Product name</CardTitle>
+        <CardTitle class="text-lg mb-2 font-thin"
+          >Nombre del producto</CardTitle
+        >
       </CardContent>
       <CardFooter class="flex justify-between px-3 pb-2">
-        <p class="text-2xl font-bold">$400</p>
-        <Button>
+        <p class="text-xl font-bold">$400</p>
+        <Button size="sm">
           <Icon
             name="ic:baseline-add-shopping-cart"
             style="color: white"
             size="18px"
           ></Icon>
-          Agregar
         </Button>
       </CardFooter>
     </div>

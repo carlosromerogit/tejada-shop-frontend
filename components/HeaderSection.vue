@@ -9,7 +9,7 @@
         >
       </div>
 
-      <div class="flex ml-2">
+      <div class="hidden sm:flex ml-2">
         <Button
           variant="ghost"
           class="hover:shadow-lg hover:shadow-stone-300 hover:scale-110 transition-all"
