@@ -1,7 +1,7 @@
 <template>
   <UCard :ui="{ body: { padding: 'px-0 py-0 sm:p-0' } }">
     <div>
-      <div class="flex justify-center aspect-[1/1] p-1 bg-white rounded-t-sm">
+      <div class="flex justify-center aspect-[1/1] p-1 bg-white rounded-t-md">
         <img
           src="https://m.media-amazon.com/images/I/71vZFqWN7VL._AC_SX679_.jpg"
           alt="none"

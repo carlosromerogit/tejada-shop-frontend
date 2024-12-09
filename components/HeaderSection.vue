@@ -14,11 +14,13 @@
         class="hidden sm:flex space-x-1 ml-2 text-stone-800 dark:text-slate-300"
       >
         <UButton
+        to="/"
           class="font-semibold hover:shadow-lg hover:shadow-stone-300 dark:hover:shadow-none hover:scale-110"
           color="transparent"
           >Inicio</UButton
         >
         <UButton
+        to="/tienda"
           class="font-semibold hover:bg-transparent hover:shadow-lg hover:shadow-stone-300 dark:hover:shadow-none hover:scale-110"
           color="transparent"
           >Tienda</UButton

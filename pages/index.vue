@@ -38,6 +38,7 @@
 useSeoMeta({
   title: "Tejada Shop",
 });
+definePageMeta({ layout: "default" });
 </script>
 
 <style scoped></style>
