@@ -455,7 +455,12 @@
             <div class="flex items-center">
               <div class="relative inline-block text-left">
                 <div>
-                  <button
+                  <UDropdown :items="items" :popper="{ placement: 'bottom-start' }" :ui="{
+                      item: { padding: 'py-2'}
+                    }">
+                    <UButton  color="transparent" label="Ordenar" trailing-icon="i-heroicons-chevron-down-20-solid" />
+                  </UDropdown>
+                  <!-- <button
                     type="button"
                     class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900"
                     id="menu-button"
@@ -476,7 +481,7 @@
                         clip-rule="evenodd"
                       />
                     </svg>
-                  </button>
+                  </button> -->
                 </div>
   
                 <!--
@@ -998,6 +1003,17 @@
     title: "Tejada Shop | Tienda",
   });
   definePageMeta({ layout: "default" });
+
+  const items = [
+  [{
+    label: 'Más recientes',
+  }, {
+    label: 'Precio: de menor a mayor',
+  },
+  {
+    label: 'Precio: de mayor a menor',
+  }]
+]
   </script>
   
   <style scoped></style>
