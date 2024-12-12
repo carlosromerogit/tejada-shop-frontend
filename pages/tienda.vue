@@ -549,26 +549,9 @@
    -->
               </div>
   
-              <button
-                type="button"
-                class="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
-              >
-                <span class="sr-only">View grid</span>
-                <svg
-                  class="h-5 w-5"
-                  aria-hidden="true"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  data-slot="icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M4.25 2A2.25 2.25 0 0 0 2 4.25v2.5A2.25 2.25 0 0 0 4.25 9h2.5A2.25 2.25 0 0 0 9 6.75v-2.5A2.25 2.25 0 0 0 6.75 2h-2.5Zm0 9A2.25 2.25 0 0 0 2 13.25v2.5A2.25 2.25 0 0 0 4.25 18h2.5A2.25 2.25 0 0 0 9 15.75v-2.5A2.25 2.25 0 0 0 6.75 11h-2.5Zm9-9A2.25 2.25 0 0 0 11 4.25v2.5A2.25 2.25 0 0 0 13.25 9h2.5A2.25 2.25 0 0 0 18 6.75v-2.5A2.25 2.25 0 0 0 15.75 2h-2.5Zm0 9A2.25 2.25 0 0 0 11 13.25v2.5A2.25 2.25 0 0 0 13.25 18h2.5A2.25 2.25 0 0 0 18 15.75v-2.5A2.25 2.25 0 0 0 15.75 11h-2.5Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
-              <button
+              <UButton
+               @click="isOpen = true"
+                color="transparent"
                 type="button"
                 class="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
               >
@@ -586,7 +569,7 @@
                     clip-rule="evenodd"
                   />
                 </svg>
-              </button>
+              </UButton>
             </div>
           </div>
   
@@ -830,14 +813,8 @@
                   </div>
             </template>
           </UAccordion>
-                
-                    
-                  
-                </div>
-             
-               
-              </form>
-  
+          </div>
+          </form>
               <!-- Product grid -->
               <div
                 class="grow xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 grid gl:grid-cols-5 grid-rows-3 gap-1"
@@ -856,7 +833,265 @@
           </section>
         </main>
       </div>
+      
     </div>
+    <div>
+
+    <USlideover v-model="isOpen">
+      <div>
+
+        <UButton
+        color="gray"
+        variant="ghost"
+        size="sm"
+        icon="i-heroicons-x-mark-20-solid"
+        class="flex sm:hidden absolute end-5 top-5 z-10"
+        square
+        padded
+        @click="isOpen = false"
+        />
+        <div class="h-full p-10" >
+          <p class="text-lg font-semibold mb-2">Filtros</p>
+          <UAccordion default-open
+          multiple :items="checkboxItems" :ui="{ item:{ color:'focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-slate-100' }, default: {class:'focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-slate-100 bg-transparent text-stone-900 hover:bg-stone-100 dark:bg-transparent dark:text-slate-300 dark:hover:bg-slate-900'}}">
+             <template #categorias>
+              <div class="py-2 pl-3" id="filter-section-1">
+                    <div class="space-y-4">
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-0"
+                          name="category[]"
+                          value="new-arrivals"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-slate-300  "
+                        />
+                        <label
+                          for="filter-category-0"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Camisetas</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-1"
+                          name="category[]"
+                          value="sale"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-slate-300 "
+                        />
+                        <label
+                          for="filter-category-1"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >T-shirts</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-2"
+                          name="category[]"
+                          value="travel"
+                          type="checkbox"
+                          checked
+                          class="h-4 w-4 rounded border-slate-300"
+                        />
+                        <label
+                          for="filter-category-2"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Pantalones</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-3"
+                          name="category[]"
+                          value="organization"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-slate-300"
+                        />
+                        <label
+                          for="filter-category-3"
+                          class="ml-3 text-sm dark:text-slate-300 "
+                          >Gorras</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-4"
+                          name="category[]"
+                          value="accessories"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-slate-300"
+                        />
+                        <label
+                          for="filter-category-4"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Accesorios</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+            </template>
+            <template #colores>
+              <div class="py-2 pl-3" id="filter-section-1">
+                    <div class="space-y-4">
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-0"
+                          name="category[]"
+                          value="new-arrivals"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          for="filter-category-0"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Negro</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-1"
+                          name="category[]"
+                          value="sale"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          for="filter-category-1"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Blanco</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-2"
+                          name="category[]"
+                          value="travel"
+                          type="checkbox"
+                          checked
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          for="filter-category-2"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Rojo</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-3"
+                          name="category[]"
+                          value="organization"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          for="filter-category-3"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Amarillo</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-4"
+                          name="category[]"
+                          value="accessories"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          for="filter-category-4"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Azul</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+            </template>
+            <template #sizes>
+              <div class="py-2 pl-3" id="filter-section-1">
+                    <div class="space-y-4">
+                      <div class="flex items-center ">
+                        <input
+                          id="filter-category-0"
+                          name="category[]"
+                          value="new-arrivals"
+                          type="checkbox"
+                          class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          for="filter-category-0"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Extra Small</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-1"
+                          name="category[]"
+                          value="sale"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          for="filter-category-1"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Small</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-2"
+                          name="category[]"
+                          value="travel"
+                          type="checkbox"
+                          checked
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          for="filter-category-2"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Medium</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-3"
+                          name="category[]"
+                          value="organization"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          for="filter-category-3"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Large</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input
+                          id="filter-category-4"
+                          name="category[]"
+                          value="accessories"
+                          type="checkbox"
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        />
+                        <label
+                          for="filter-category-4"
+                          class="ml-3 text-sm dark:text-slate-300"
+                          >Extra Large</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+            </template>
+          </UAccordion>
+        </div>
+      </div>
+    
+    </USlideover>
+  </div>
+   
   </template>
   
   <script setup lang="ts">
@@ -887,6 +1122,7 @@ const checkboxItems = [{
   slot: 'sizes'
 },]
 
+  const isOpen = ref(false)
 
   </script>
   
