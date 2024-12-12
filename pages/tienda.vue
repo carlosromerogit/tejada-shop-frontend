@@ -596,11 +596,10 @@
             <div class="flex gap-4">
               <!-- Filters -->
               <form class="basis-48 hidden lg:block shrink-0">
-                <div class="border-b border-gray-200 py-6">
-           <UAccordion :items="checkboxItems" :ui="{item:{color: 'transparent'}}">
-
+                <div class=" py-6">
+           <UAccordion multiple :items="checkboxItems" :ui="{ item:{ color:'focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-slate-100' }, default: {class:'focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-slate-100 bg-transparent text-stone-900 hover:bg-stone-100 dark:bg-transparent dark:text-slate-300 dark:hover:bg-slate-900'}}">
              <template #categorias>
-              <div class="pt-6" id="filter-section-1">
+              <div class="py-2 pl-3" id="filter-section-1">
                     <div class="space-y-4">
                       <div class="flex items-center">
                         <input
@@ -608,11 +607,11 @@
                           name="category[]"
                           value="new-arrivals"
                           type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          class="h-4 w-4 rounded border-slate-300  "
                         />
                         <label
                           for="filter-category-0"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Camisetas</label
                         >
                       </div>
@@ -622,11 +621,11 @@
                           name="category[]"
                           value="sale"
                           type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          class="h-4 w-4 rounded border-slate-300 "
                         />
                         <label
                           for="filter-category-1"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >T-shirts</label
                         >
                       </div>
@@ -637,11 +636,11 @@
                           value="travel"
                           type="checkbox"
                           checked
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          class="h-4 w-4 rounded border-slate-300"
                         />
                         <label
                           for="filter-category-2"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Pantalones</label
                         >
                       </div>
@@ -651,11 +650,11 @@
                           name="category[]"
                           value="organization"
                           type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          class="h-4 w-4 rounded border-slate-300"
                         />
                         <label
                           for="filter-category-3"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300 "
                           >Gorras</label
                         >
                       </div>
@@ -665,11 +664,11 @@
                           name="category[]"
                           value="accessories"
                           type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          class="h-4 w-4 rounded border-slate-300"
                         />
                         <label
                           for="filter-category-4"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Accesorios</label
                         >
                       </div>
@@ -677,7 +676,7 @@
                   </div>
             </template>
             <template #colores>
-              <div class="pt-6" id="filter-section-1">
+              <div class="py-2 pl-3" id="filter-section-1">
                     <div class="space-y-4">
                       <div class="flex items-center">
                         <input
@@ -689,7 +688,7 @@
                         />
                         <label
                           for="filter-category-0"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Negro</label
                         >
                       </div>
@@ -703,7 +702,7 @@
                         />
                         <label
                           for="filter-category-1"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Blanco</label
                         >
                       </div>
@@ -718,7 +717,7 @@
                         />
                         <label
                           for="filter-category-2"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Rojo</label
                         >
                       </div>
@@ -732,7 +731,7 @@
                         />
                         <label
                           for="filter-category-3"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Amarillo</label
                         >
                       </div>
@@ -746,28 +745,27 @@
                         />
                         <label
                           for="filter-category-4"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Azul</label
                         >
                       </div>
                     </div>
                   </div>
             </template>
-
             <template #sizes>
-              <div class="pt-6" id="filter-section-1">
+              <div class="py-2 pl-3" id="filter-section-1">
                     <div class="space-y-4">
-                      <div class="flex items-center">
+                      <div class="flex items-center ">
                         <input
                           id="filter-category-0"
                           name="category[]"
                           value="new-arrivals"
                           type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
                           for="filter-category-0"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Extra Small</label
                         >
                       </div>
@@ -781,7 +779,7 @@
                         />
                         <label
                           for="filter-category-1"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Small</label
                         >
                       </div>
@@ -796,7 +794,7 @@
                         />
                         <label
                           for="filter-category-2"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Medium</label
                         >
                       </div>
@@ -810,7 +808,7 @@
                         />
                         <label
                           for="filter-category-3"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Large</label
                         >
                       </div>
@@ -824,7 +822,7 @@
                         />
                         <label
                           for="filter-category-4"
-                          class="ml-3 text-sm text-gray-600"
+                          class="ml-3 text-sm dark:text-slate-300"
                           >Extra Large</label
                         >
                       </div>
@@ -862,8 +860,6 @@
   </template>
   
   <script setup lang="ts">
-import { LazyUTable } from '#build/components';
-
   useSeoMeta({
     title: "Tejada Shop | Tienda",
   });
