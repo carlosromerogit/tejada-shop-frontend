@@ -14,13 +14,13 @@
         class="hidden sm:flex space-x-1 ml-2 text-stone-800 dark:text-slate-300"
       >
         <UButton
-        to="/"
+          to="/"
           class="font-semibold hover:shadow-lg hover:shadow-stone-300 dark:hover:shadow-none hover:scale-110"
           color="transparent"
           >Inicio</UButton
         >
         <UButton
-        to="/tienda"
+          to="/tienda"
           class="font-semibold hover:bg-transparent hover:shadow-lg hover:shadow-stone-300 dark:hover:shadow-none hover:scale-110"
           color="transparent"
           >Tienda</UButton
@@ -32,6 +32,7 @@
             <span class="text-sm font-medium">Tienda</span>
           </div> -->
         <UButton
+          to="/favoritos"
           class="font-semibold hover:bg-transparent hover:shadow-lg hover:shadow-stone-300 dark:hover:shadow-none hover:scale-110"
           color="transparent"
           >Favoritos</UButton
