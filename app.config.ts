@@ -20,6 +20,16 @@ export default defineAppConfig({
             "bg-stone-100 text-stone-900 dark:bg-slate-800 dark:text-slate-300 focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-slate-100",
         },
       },
+    },
+    pagination:{
+      default:{
+        activeButton:{
+          
+        },
+        inactiveButton:{
+            color: 'white'
+        }
+      }
     }
   },
   

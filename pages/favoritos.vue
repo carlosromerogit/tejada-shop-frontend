@@ -46,7 +46,7 @@ const people = [
   },
 ];
 
-const items = (row: any) => [
+const itemsMenu = (row: any) => [
   [
     {
       label: "Agregar al carrito",
@@ -62,6 +62,9 @@ const items = (row: any) => [
 ];
 
 const selected = ref([people[1]]);
+
+const page = ref(1)
+const itemsPagination = ref(Array(14))
 </script>
 
 <template>
@@ -90,7 +93,7 @@ const selected = ref([people[1]]);
         </template>
 
         <template #actions-data="{ row }">
-          <UDropdown :items="items(row)">
+          <UDropdown :items="itemsMenu(row)">
             <UButton
               class="text-stone-800 dark:text-slate-100 hover:bg-stone-200 dark:hover:bg-slate-800"
               color="transparent"
@@ -99,6 +102,9 @@ const selected = ref([people[1]]);
           </UDropdown>
         </template>
       </UTable>
+    </div>
+    <div class="mt-2 flex justify-end">
+      <UPagination v-model="page" :page-count="5" :total="itemsPagination.length" />
     </div>
   </main>
 </template>
