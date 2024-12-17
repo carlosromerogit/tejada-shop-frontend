@@ -70,6 +70,9 @@ const selected = ref([people[1]]);
       <h1 class="text-2xl font-bold mb-1">Tus artículos favoritos</h1>
       <p class="text-slate-600 dark:text-slate-400">10 artículos en tu lista</p>
     </div>
+    <div class="mb-4">
+      <UInput class="max-w-72" placeholder="Buscar..." color="transparent" />
+    </div>
     <div class="bg-stone-100 dark:bg-slate-900 rounded-md">
       <UTable
         v-model="selected"
