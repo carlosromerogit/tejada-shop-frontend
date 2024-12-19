@@ -104,7 +104,7 @@ const itemsPagination = ref(Array(14))
       </UTable>
     </div>
     <div class="mt-2 flex justify-end">
-      <UPagination v-model="page" :page-count="5" :total="itemsPagination.length" />
+      <UPagination  :ui="{default:{ }}" v-model="page" :page-count="5" :total="itemsPagination.length" />
     </div>
   </main>
 </template>

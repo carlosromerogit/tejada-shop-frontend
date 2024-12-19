@@ -1,5 +1,6 @@
 export default defineAppConfig({
   ui: {
+    primary:'bg-slate-800',
     button: {
       base: "  ",
       color: {
@@ -22,12 +23,9 @@ export default defineAppConfig({
       },
     },
     pagination:{
-      default:{
+      default: {
         activeButton:{
-          
-        },
-        inactiveButton:{
-            color: 'white'
+          color:'primary'
         }
       }
     }
