@@ -8,6 +8,10 @@ export default defineAppConfig({
           solid:
             "bg-transparent text-stone-900 dark:bg-transparent dark:text-slate-300 focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-slate-100",
         },
+        primary: {
+          solid:
+            "bg-slate-900 text-stone-200 dark:bg-stone-200 dark:text-stone-900 focus-visible:ring-2 focus-visible:ring-slate-600 dark:focus-visible:ring-slate-100",
+        },
       },
     },
     checkbox: {
@@ -18,7 +22,7 @@ export default defineAppConfig({
       color: {
         transparent: {
           outline:
-            "bg-stone-100 text-stone-900 dark:bg-slate-800 dark:text-slate-300 focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-slate-100",
+            "bg-white text-stone-900 border border-1 border-stone-200 dark:border-none dark:bg-slate-800 dark:text-slate-300 focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-slate-100",
         },
       },
     },
@@ -30,5 +34,5 @@ export default defineAppConfig({
       }
     }
   },
-  
+
 });
