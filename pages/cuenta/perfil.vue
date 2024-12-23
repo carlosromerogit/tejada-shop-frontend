@@ -1,7 +1,9 @@
 <template>
   <div>
     <form class="bg-stone-100 dark:bg-slate-900/80 p-4 rounded-md">
-      <h2 class="text-lg font-bold pb-4 mb-4 border-b border-stone-300">
+      <h2
+        class="text-lg font-bold pb-4 mb-4 border-b border-stone-300 dark:border-slate-800"
+      >
         Información básica
       </h2>
       <div class="flex">

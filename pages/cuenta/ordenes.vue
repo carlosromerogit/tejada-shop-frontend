@@ -23,7 +23,9 @@
         </header>
         <section class="rounded-lg px-8 pt-4">
           <ul class="space-y-4">
-            <li class="flex gap-8 border-b border-slate-800 pb-4">
+            <li
+              class="flex gap-8 border-b border-stone-300 dark:border-slate-800 pb-4"
+            >
               <div class="flex">
                 <div class="bg-slate-800 aspect-[3/4] h-24"></div>
                 <div class="flex flex-col justify-between p-2">
@@ -44,7 +46,9 @@
                 <p class="font-semibold">24 de diciembre 2024</p>
               </div>
             </li>
-            <li class="flex gap-8 border-b border-slate-800 pb-4">
+            <li
+              class="flex gap-8 border-b border-stone-300 dark:border-slate-800 pb-4"
+            >
               <div class="flex">
                 <div class="bg-slate-800 aspect-[3/4] h-24"></div>
                 <div class="flex flex-col justify-between p-2">
@@ -65,7 +69,9 @@
                 <p class="font-semibold">24 de diciembre 2024</p>
               </div>
             </li>
-            <li class="flex gap-8 border-b border-slate-800 pb-2">
+            <li
+              class="flex gap-8 border-b border-stone-300 dark:border-slate-800 pb-2"
+            >
               <div class="flex">
                 <div class="bg-slate-800 aspect-[3/4] h-24"></div>
                 <div class="flex flex-col justify-between p-2">
