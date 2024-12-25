@@ -1,21 +1,17 @@
 <template>
   <div class="mt-6">
     <div
-      class="grid sm:grid-cols-2 items-start gap-14 p-8 mx-auto max-w-4xl bg-stone-100 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md font-[sans-serif]"
+      class="grid sm:grid-cols-2 items-start gap-14 p-8 mx-auto max-w-4xl bg-stone-100 dark:bg-slate-900 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md font-[sans-serif]"
     >
       <div>
-        <h1 class="text-gray-800 text-3xl font-extrabold">Let's Talk</h1>
-        <p class="text-sm text-gray-500 mt-4">
-          Have some big idea or brand to develop and need help? Then reach out
-          we'd love to hear about your project and provide help.
-        </p>
+        <h1 class="text-3xl font-extrabold">Contáctanos</h1>
 
         <div class="mt-12">
-          <h2 class="text-gray-800 text-base font-bold">Email</h2>
+          <h2 class="text-base font-bold">Email</h2>
           <ul class="mt-4">
             <li class="flex items-center">
               <div
-                class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0"
+                class="bg-stone-200 dark:bg-slate-800 h-10 w-10 rounded-full flex items-center justify-center shrink-0"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -39,11 +35,11 @@
         </div>
 
         <div class="mt-12">
-          <h2 class="text-gray-800 text-base font-bold">Socials</h2>
+          <h2 class="text-base font-bold">Redes sociales</h2>
 
           <ul class="flex mt-4 space-x-4">
             <li
-              class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0"
+              class="bg-stone-200 dark:bg-slate-800 h-10 w-10 rounded-full flex items-center justify-center shrink-0"
             >
               <a href="javascript:void(0)">
                 <svg
@@ -61,7 +57,7 @@
               </a>
             </li>
             <li
-              class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0"
+              class="bg-stone-200 dark:bg-slate-800 h-10 w-10 rounded-full flex items-center justify-center shrink-0"
             >
               <a href="javascript:void(0)">
                 <svg
@@ -79,7 +75,7 @@
               </a>
             </li>
             <li
-              class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0"
+              class="bg-stone-200 dark:bg-slate-800 h-10 w-10 rounded-full flex items-center justify-center shrink-0"
             >
               <a href="javascript:void(0)">
                 <svg
@@ -103,7 +99,7 @@
         <UInput placeholder="Nombre" color="transparent" />
         <UInput placeholder="Email" color="transparent" />
         <UInput placeholder="Asunto" color="transparent"></UInput>
-        <UTextarea placeholder="Mensaje"></UTextarea>
+        <UTextarea placeholder="Mensaje" color="transparent"></UTextarea>
         <UButton block>Enviar</UButton>
       </form>
     </div>
