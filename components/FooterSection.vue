@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-slate-900 dark:bg-slate-900/50 mt-20">
+    <footer class="bg-slate-900 dark:bg-slate-900/50 ">
       <RowContainer>
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div class="md:flex md:justify-between">

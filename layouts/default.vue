@@ -4,8 +4,8 @@
     <div class="grow">
       <slot></slot>
     </div>
+    <FooterSection></FooterSection>
   </div>
-  <FooterSection></FooterSection>
 </template>
 
 <script setup lang="ts"></script>
