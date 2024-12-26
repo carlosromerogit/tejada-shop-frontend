@@ -47,6 +47,7 @@
             <span class="text-sm font-medium">Favoritos</span>
           </div> -->
         <UButton
+        to="/contacto"
           class="font-semibold hover:bg-transparent hover:shadow-lg hover:shadow-stone-300 dark:hover:shadow-none hover:scale-110"
           color="transparent"
           >Contacto</UButton

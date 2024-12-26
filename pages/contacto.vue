@@ -1,7 +1,7 @@
 <template>
 
 <div class="my-12">
-            <div class="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-stone-100 dark:bg-slate-900 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
+            <div class="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-8 bg-stone-100 dark:bg-slate-900 rounded-md">
                 <div>
                     <h1 class="text-3xl font-extrabold">Contáctanos</h1>
                     <p class="text-sm mt-3">¡Estamos aquí para ayudarte! Si tiene alguna pregunta o necesita ayuda, no dude en comunicarse con nosotros.</p>
@@ -68,7 +68,7 @@
                     <UInput placeholder="Email" color="transparent"/>
                     <UInput placeholder="Asunto" color="transparent"/>
                     <UTextarea placeholder="Mensaje" color="transparent"/>
-                    <UButton label="Enviar" block />
+                    <UButton label="Enviar" block size="md"/>
                   </form>
             </div>
         </div>
