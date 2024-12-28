@@ -82,14 +82,14 @@ const itemsPagination = ref(Array(14))
     <div class="mb-4">
       <UInput class="max-w-72" placeholder="Buscar..." color="transparent" />
     </div>
-    <div class="flex gap-4   rounded-md">
+    <div class="flex flex-col md:flex-row gap-4 rounded-md">
   
-       <div class="grow bg-stone-100 dark:bg-slate-900 rounded-md">
+       <div class="grow bg-stone-100 dark:bg-slate-900 rounded-md border dark:border dark:border-1 dark:border-slate-800  ">
            <UTable
              v-model="selected"
              :rows="people"
              :columns="columns"
-             :ui="{ tr: { selected: 'bg-white dark:bg-gray-800/50' } }"
+             :ui="{ tr: { selected: 'bg-white dark:bg-gray-800/50' }, th: { size: 'text-md', color:'border-b border-1 border-stone-200 dark:border-slate-800 text-left rtl:text-right'}, checkbox:{color:'border-b border-1 border-slate-100'} }"
            >
              <template #image-data="{ row }">
                <div class="p-1 rounded-md bg-white max-w-24">
@@ -120,28 +120,28 @@ const itemsPagination = ref(Array(14))
            </UTable>
        </div>
     
-        <UCard :ui="{base:'basis-64 self-start', background:'bg-stone-100 dark:bg-slate-900', header:{padding:'py-4'} } ">
+        <UCard :ui="{base:'basis-full md:basis-64 md:self-start ', background:'bg-stone-100 dark:bg-slate-900', header:{padding:'py-3'} } ">
             <template #header>
-            <p>Resumen</p>
+            <p class="text-lg font-semibold">Resumen</p>
             </template>
 
-           <ul>
+           <ul class="flex flex-col space-y-1">
             <li class="flex justify-between">
                 <span>Subtotal</span>
-                <span>$50</span>
+                <span class="font-semibold">$50</span>
             </li>
             <li class="flex justify-between">
                 <span>Descuento</span>
-                <span>$15</span>
+                <span class="font-semibold">$15</span>
             </li>
             <li class="flex justify-between">
                 <span>Impuesto</span>
-                <span>$5</span>
+                <span class="font-semibold">$5</span>
             </li>
            </ul>
 
             <template #footer>
-                <div class="flex justify-between">
+                <div class="flex justify-between mb-2 font-bold">
                     <span>Total</span>
                     <span>$111</span>
                 </div>
