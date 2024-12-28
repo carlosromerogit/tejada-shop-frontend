@@ -102,9 +102,11 @@ const itemsPagination = ref(Array(14))
              </template>
              <template #quantity-data="{row}">
                 <div class="flex">
-                    <UButton icon="ic:round-minus" size="xs" />
-                    <UInput :ui="{base:'w-8'}"></UInput>
-                    <UButton icon="material-symbols:add-rounded" size="xs" />
+                  <div class="flex items-center gap-2 bg-stone-200/50 dark:bg-slate-800 rounded-md">
+                    <UButton icon="ic:round-minus" size="xs" color="transparent" />
+                    <UInput :ui="{base:'w-12', color: {transparent: { outline:'bg-stone-200/10 border-none border-1 border-stone-300 dark:border-none',},},}" color="transparent"></UInput>
+                    <UButton icon="material-symbols:add-rounded" size="xs" color="transparent" />
+                  </div>
                 </div>
              </template>
      
