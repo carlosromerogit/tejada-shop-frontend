@@ -56,7 +56,7 @@ const itemsMenu = (row: any) => [
   [
     {
       label: "Agregar a favoritos",
-      icon: "ic:baseline-add-shopping-cart",
+      icon: "material-symbols:favorite-outline",
       click: () => console.log("Edit", row.id),
     },
     {
