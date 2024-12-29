@@ -74,13 +74,10 @@ const itemsPagination = ref(Array(14))
 </script>
 
 <template>
-  <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
     <div class="mb-5">
       <h1 class="text-2xl font-bold mb-1">Carrito de compra</h1>
       <p class="text-slate-600 dark:text-slate-400">10 artículos en tu carrito</p>
-    </div>
-    <div class="mb-4">
-      <UInput class="max-w-72" placeholder="Buscar..." color="transparent" />
     </div>
     <div class="flex flex-col md:flex-row gap-4 rounded-md">
   
@@ -104,7 +101,7 @@ const itemsPagination = ref(Array(14))
                 <div class="flex">
                   <div class="flex items-center gap-2 bg-stone-200/50 dark:bg-slate-800 rounded-md">
                     <UButton icon="ic:round-minus" size="xs" color="transparent" />
-                    <UInput :ui="{base:'w-12', color: {transparent: { outline:'bg-stone-200/10 border-none border-1 border-stone-300 dark:border-none',},},}" color="transparent"></UInput>
+                    <UInput  :ui="{base:'w-12', color: {transparent: { outline:'bg-stone-200/10 border-none border-1 border-stone-300 dark:border-none',},},}" color="transparent"></UInput>
                     <UButton icon="material-symbols:add-rounded" size="xs" color="transparent" />
                   </div>
                 </div>
