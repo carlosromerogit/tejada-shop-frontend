@@ -41,14 +41,9 @@ const links = [
       to: "/cuenta/ordenes",
     },
     {
-      label: "Direcciones",
+      label: "Facturación y pagos",
       icon: "material-symbols:directions-alt-outline",
       to: "/cuenta/direcciones",
-    },
-    {
-      label: "Seguridad",
-      icon: "material-symbols:lock-outline",
-      to: "/cuenta/seguridad",
     },
   ],
   [
