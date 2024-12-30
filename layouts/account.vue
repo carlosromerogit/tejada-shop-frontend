@@ -8,7 +8,7 @@
             <div class="flex items-baseline justify-between pt-12 pb-2"></div>
             <section class="pb-8">
               <div class="flex gap-4">
-                <form class="basis-48 hidden lg:block shrink-0">
+                <form class="basis-64 hidden lg:block shrink-0">
                   <div class="py-4">
                     <UVerticalNavigation :links="links" />
                   </div>
