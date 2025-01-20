@@ -11,7 +11,12 @@ strapi:{
   prefix: '/api',
   admin: '/admin',
   version: 'v5',
-  cookie: {},
+  cookie: {
+    path: '/',
+      maxAge: 14 * 24 * 60 * 60,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: true
+  },
   cookieName: 'strapi_jwt'
 }
 });

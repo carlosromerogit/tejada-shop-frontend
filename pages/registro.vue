@@ -9,7 +9,12 @@
         </div>
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="bg-white dark:bg-slate-900 px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow">
-                <UForm :schema="schema"  :state="state" @submit.prevent="onSubmit" class="space-y-6">
+                <UForm ref="form" :schema="schema" :state="state" @submit.prevent="onSubmit" class="space-y-6">
+                    <div>
+                        <UFormGroup label="Username" name="username">
+                            <UInput color="transparent" v-model="state.username"/>
+                        </UFormGroup>
+                    </div>
                     <div>
                         <UFormGroup label="Email" name="email">
                             <UInput color="transparent" v-model="state.email"/>
@@ -20,14 +25,7 @@
                             <UInput color="transparent" v-model="state.password"/>
                         </UFormGroup>
                     </div>
-                    <!-- <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700 dark:text-white">Confirmar contraseña</label>
-                        <UInput color="transparent" />
-                    </div> -->
-                    
-              
                         <UButton :loading="status === 'pending'" type="submit" block color="primary">Registrarse</UButton>
-              
                 </UForm>
                 <div class="mt-6">
                     <div class="relative">
@@ -84,9 +82,18 @@
 
 <script setup lang="ts">
 import { z } from 'zod';
-import type { FormSubmitEvent } from '#ui/types'
+import type { FormError, FormSubmitEvent } from '#ui/types'
+
+
+
+const { register } = useStrapiAuth()
+const user = useStrapiUser()
+const router = useRouter();
+
+
 
 const schema = z.object({
+  username: z.string({message:"Requerido."}),
   email: z.string({message:"Requerido."}).email('Correo inválido.'),
   password: z.string({message:"Requerido."}).min(8, 'La contraseña debe tener al menos 8 carácteres.')
 })
@@ -94,17 +101,26 @@ const schema = z.object({
 type Schema = z.output<typeof schema>
 
 const state = reactive({
+  username: undefined,
   email: undefined,
   password: undefined
 })
 
-const {data, status, execute} = await useAsyncData('register', async ()=>{
+const {data, status, error, execute} = await useAsyncData('register', async ()=>{
 
-    return await $fetch('https://jsonplaceholder.typicode.com/users');
+    return await register({ username: state.username, email: state.email, password: state.password })
 }, {immediate: false})
 
 async function onSubmit(event: FormSubmitEvent<Schema>){
-    execute()
+   
+    await execute();
+   
+//    if(!user.value) return;
+
+//    console.log(user.value)
+
+//     router.push('/')
+
 }
 
 
