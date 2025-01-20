@@ -9,24 +9,26 @@
         </div>
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="bg-white dark:bg-slate-900 px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow">
-                <form class="space-y-6">
+                <UForm :schema="schema"  :state="state" @submit.prevent="onSubmit" class="space-y-6">
                     <div>
-                        <label for="email" class="block text-sm font-medium text-slate-700 dark:text-white">Email</label>
-                            <UInput color="transparent" />
+                        <UFormGroup label="Email" name="email">
+                            <UInput color="transparent" v-model="state.email"/>
+                        </UFormGroup>
                     </div>
                     <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700 dark:text-white">Contraseña</label>
-                        <UInput color="transparent" />
+                        <UFormGroup label="Contraseña" name="password">
+                            <UInput color="transparent" v-model="state.password"/>
+                        </UFormGroup>
                     </div>
-                    <div>
+                    <!-- <div>
                         <label for="password" class="block text-sm font-medium text-gray-700 dark:text-white">Confirmar contraseña</label>
                         <UInput color="transparent" />
-                    </div>
+                    </div> -->
                     
-                    <div>
-                        <UButton block color="primary">Registrarse</UButton>
-                    </div>
-                </form>
+              
+                        <UButton :loading="status === 'pending'" type="submit" block color="primary">Registrarse</UButton>
+              
+                </UForm>
                 <div class="mt-6">
                     <div class="relative">
                         <div class="absolute inset-0 flex items-center">
@@ -75,17 +77,38 @@
             </div>
         </div>
     </div>
+    <div v-if="status === 'pending'">Pending...</div>
+    <div v-else-if="status === 'success'">{{ data }}</div>
 </div>
 </template>
 
 <script setup lang="ts">
+import { z } from 'zod';
+import type { FormSubmitEvent } from '#ui/types'
+
+const schema = z.object({
+  email: z.string({message:"Requerido."}).email('Correo inválido.'),
+  password: z.string({message:"Requerido."}).min(8, 'La contraseña debe tener al menos 8 carácteres.')
+})
+
+type Schema = z.output<typeof schema>
+
+const state = reactive({
+  email: undefined,
+  password: undefined
+})
+
+const {data, status, execute} = await useAsyncData('register', async ()=>{
+
+    return await $fetch('https://jsonplaceholder.typicode.com/users');
+}, {immediate: false})
+
+async function onSubmit(event: FormSubmitEvent<Schema>){
+    execute()
+}
+
+
 definePageMeta({
     layout:'guest'
 })
-const remember = ref(true)
-
 </script>
-
-<style scoped>
-
-</style>
