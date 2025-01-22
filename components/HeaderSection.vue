@@ -75,7 +75,7 @@
          Iniciaste sesión como
         </p>
         <p class="truncate font-medium text-gray-900 dark:text-white">
-          {{ item.label }}
+          {{ user?.username }}
         </p>
       </div>
     </template>
@@ -113,6 +113,10 @@
 </template>
 
 <script setup lang="ts">
+const { logout } = useStrapiAuth()
+const router = useRouter()
+const user = useStrapiUser()
+console.log(user.value)
 const colorMode = useColorMode();
 const isDark = computed({
   get() {
@@ -138,7 +142,11 @@ const dropdownItems = [
     icon: 'material-symbols-light:favorite-outline'
   }], [{
     label: 'Cerrar sesión',
-    icon: 'i-heroicons-arrow-left-on-rectangle'
+    icon: 'i-heroicons-arrow-left-on-rectangle',
+    click: () => {
+      logout()
+      router.push('/login')
+    }
   }]
 ]
 

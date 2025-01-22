@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-stone-200 dark:bg-slate-950">
+    <div class="bg-stone-100 dark:bg-slate-950">
       <div
         class="flex min-h-[80vh] flex-col justify-center py-12 sm:px-6 lg:px-8"
       >
@@ -11,24 +11,18 @@
         </div>
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div
-            class="bg-white dark:bg-slate-900 px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow"
+            class="bg-white dark:bg-slate-900 px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow-lg"
           >
-            <form class="space-y-6">
+            <UForm ref="form"  :state="state" :schema="schema" @submit="onSubmit" class="space-y-6">
               <div>
-                <label
-                  for="email"
-                  class="block text-sm font-medium text-slate-700 dark:text-white"
-                  >Email</label
-                >
-                <UInput color="transparent" />
+                <UFormGroup label="Username" name="username">
+                  <UInput color="transparent"  v-model="state.username"/>
+                </UFormGroup>
               </div>
               <div>
-                <label
-                  for="password"
-                  class="block text-sm font-medium text-gray-700 dark:text-white"
-                  >Contraseña</label
-                >
-                <UInput color="transparent" />
+                <UFormGroup label="Contraseña" name="password">
+                  <UInput type="password"  color="transparent" v-model="state.password"/>
+                </UFormGroup>
               </div>
               <div class="flex items-center justify-between">
                 <div class="flex items-center">
@@ -40,15 +34,15 @@
                   />
                 </div>
                 <div class="text-sm">
-                  <UButton color="transparent" class="hover:underline"
+                  <UButton type="submit" color="transparent" class="hover:underline"
                     >Olvidaste tu contraseña?</UButton
                   >
                 </div>
               </div>
               <div>
-                <UButton block color="primary">Iniciar sesión</UButton>
+                <UButton :loading="status === 'pending'" type="submit" block color="primary">Iniciar sesión</UButton>
               </div>
-            </form>
+            </UForm>
             <div class="mt-6">
               <div class="relative">
                 <div class="absolute inset-0 flex items-center">
@@ -135,6 +129,45 @@
 </template>
 
 <script setup lang="ts">
+import { z } from 'zod'
+import type { Form, FormSubmitEvent } from '#ui/types'
+
+const { login } = useStrapiAuth()
+const router = useRouter()
+
+const schema = z.object({
+  username: z.string({message:"Requerido."}),
+  password: z.string({message:"Requerido."}).min(8, 'La contraseña debe tener al menos 8 carácteres.')
+})
+
+type Schema = z.output<typeof schema>
+
+const form = ref<Form<Schema>>()
+
+const state = reactive({
+  username: undefined,
+  password: undefined
+})
+
+const {data, status, error, execute} =useAsyncData('login', async()=>{
+  return await login({ identifier: state.username, password: state.password })
+}, {immediate: false})
+
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+  form.value?.clear();
+
+  await execute();
+
+  if(error.value?.cause.error.message){
+    form.value?.setErrors([{path:"password", message: "Credenciales incorrectas."}])
+    console.log(event.data)
+    return;
+  }
+
+  router.replace('/');
+}
+
+
 definePageMeta({
   layout: "guest",
 });

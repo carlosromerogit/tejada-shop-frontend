@@ -109,7 +109,7 @@
 useSeoMeta({
   title: "Tejada Shop | Cuenta",
 });
-definePageMeta({ layout: "account" });
+definePageMeta({ layout: "account", middleware: "auth-user" });
 </script>
 
 <style scoped></style>

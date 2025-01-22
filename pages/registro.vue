@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bg-stone-200 dark:bg-slate-950">
+        <div class="bg-stone-100 dark:bg-slate-950">
     <div class="flex min-h-[80vh] flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="text-center sm:mx-auto sm:w-full sm:max-w-md">
             <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white">
@@ -8,7 +8,7 @@
             </h1>
         </div>
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div class="bg-white dark:bg-slate-900 px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow">
+            <div class="bg-white dark:bg-slate-900 px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow-lg">
                 <UForm ref="form" :schema="schema" :state="state" @submit.prevent="onSubmit" class="space-y-6">
                     <div>
                         <UFormGroup label="Username" name="username">
@@ -22,7 +22,7 @@
                     </div>
                     <div>
                         <UFormGroup label="Contraseña" name="password">
-                            <UInput color="transparent" v-model="state.password"/>
+                            <UInput type="password" color="transparent" v-model="state.password"/>
                         </UFormGroup>
                     </div>
                         <UButton :loading="status === 'pending'" type="submit" block color="primary">Registrarse</UButton>
@@ -82,15 +82,13 @@
 
 <script setup lang="ts">
 import { z } from 'zod';
-import type { FormError, FormSubmitEvent } from '#ui/types'
+import type { Form, FormSubmitEvent } from '#ui/types'
 
 
 
 const { register } = useStrapiAuth()
 const user = useStrapiUser()
 const router = useRouter();
-
-
 
 const schema = z.object({
   username: z.string({message:"Requerido."}),
@@ -99,6 +97,8 @@ const schema = z.object({
 })
 
 type Schema = z.output<typeof schema>
+
+const form = ref<Form<Schema>>()
 
 const state = reactive({
   username: undefined,
@@ -112,14 +112,17 @@ const {data, status, error, execute} = await useAsyncData('register', async ()=>
 }, {immediate: false})
 
 async function onSubmit(event: FormSubmitEvent<Schema>){
-   
+    form.value!.clear()
     await execute();
-   
-//    if(!user.value) return;
+    
+    if(error.value?.cause.error.message){
 
-//    console.log(user.value)
+        form.value?.setErrors([{path:'email', message: "El correo o el nombre de usuario ya están en uso."}])
+        return;
+    }
 
-//     router.push('/')
+
+    router.push('/')
 
 }
 
