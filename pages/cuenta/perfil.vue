@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="bg-stone-100 dark:bg-slate-900/80 p-4 rounded-md">
+    <UForm ref="form" :schema="schema" :state="state" @submit="onSubmit" class="bg-stone-100 dark:bg-slate-900/80 p-4 rounded-md">
       <h2
         class="text-lg font-bold pb-4 mb-4 border-b border-stone-300 dark:border-slate-800"
       >
@@ -9,29 +9,67 @@
       <div class="flex">
         <div class="flex flex-col gap-8 basis-1/2 pr-10">
           <div class="flex flex-col gap-3">
-            <label> Nombre </label>
-            <UInput color="transparent"></UInput>
+            <UFormGroup label="Nombre" name="name">
+              <UInput v-model="state.name" color="transparent"></UInput>
+            </UFormGroup>
           </div>
           <div class="flex flex-col gap-3">
-            <label for=""> Número telefónico </label>
-            <UInput color="transparent"></UInput>
+           <UFormGroup label="Número telefónico" name="phone">
+             <UInput v-model="state.phone" color="transparent"></UInput>
+            </UFormGroup>
           </div>
         </div>
         <div class="basis-1/2 pr-10">
           <div class="flex flex-col gap-3">
-            <label for="">Apellido </label>
-            <UInput color="transparent"></UInput>
+          <UFormGroup label="Apellido" name="lastname">
+            <UInput v-model="state.lastname" color="transparent"></UInput>
+          </UFormGroup>
           </div>
         </div>
       </div>
-      <div class="py-6 max-w-[120px]">
-        <button type="submit" label="Actualizar" severity="primary"></button>
+      <div class="py-4 max-w-[120px]">
+        <UButton :loading="status === 'pending'" type="submit" label="Actualizar"></UButton>
       </div>
-    </form>
+
+    </UForm>
   </div>
 </template>
 
 <script setup lang="ts">
+import { z } from 'zod';
+import type { Form, FormSubmitEvent } from '#ui/types';
+
+const user = useStrapiUser();
+const { update } = useStrapi();
+
+const schema = z.object({
+  name: z.string({message:'Requerido.'}),
+  lastname: z.string({message:'Requerido.'}),
+  phone: z.string({message:'Requerido.'})
+})
+
+const state = reactive<Schema>({
+  name: user.value.name,
+  lastname: user.value.lastname,
+  phone: user.value.phone,
+
+})
+
+type Schema = z.output<typeof schema>
+
+const form = ref<Form<Schema>>()
+
+const {data, status, error, execute } = await useAsyncData('updateUser', async ()=>{
+  return await update('users', user.value?.id, { name: state.name, lastname: state.lastname, phone: state.phone })
+}, {immediate: false});
+
+async function onSubmit (event: FormSubmitEvent<Schema>) {
+  form.value!.clear()
+  await execute()
+  console.log(event.data)
+  console.log(data.value)
+}
+
 useSeoMeta({
   title: "Tejada Shop | Cuenta",
 });
