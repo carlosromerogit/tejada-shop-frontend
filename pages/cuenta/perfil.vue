@@ -39,35 +39,34 @@
 import { z } from 'zod';
 import type { Form, FormSubmitEvent } from '#ui/types';
 
+
 const user = useStrapiUser();
 const { update } = useStrapi();
-
 const schema = z.object({
   name: z.string({message:'Requerido.'}),
   lastname: z.string({message:'Requerido.'}),
   phone: z.string({message:'Requerido.'})
-})
+});
+const {data: profile } = await useAsyncData('updateUser', async ()=>{
+  return  $fetch(`http://localhost:1337/api/users/${user.value.id}?populate=profile`)});
+
+  console.log(profile.value?.profile)
 
 const state = reactive<Schema>({
-  name: user.value.name,
-  lastname: user.value.lastname,
-  phone: user.value.phone,
-
-})
+  name: profile.value?.profile.name,
+  lastname: profile.value?.profile.lastname,
+  phone: profile.value?.profile.phone
+});
 
 type Schema = z.output<typeof schema>
 
-const form = ref<Form<Schema>>()
+const form = ref<Form<Schema>>();
 
-const {data, status, error, execute } = await useAsyncData('updateUser', async ()=>{
-  return await update('users', user.value?.id, { name: state.name, lastname: state.lastname, phone: state.phone })
-}, {immediate: false});
+
 
 async function onSubmit (event: FormSubmitEvent<Schema>) {
-  form.value!.clear()
-  await execute()
-  console.log(event.data)
-  console.log(data.value)
+  form.value!.clear();
+  console.log(event.data);
 }
 
 useSeoMeta({
